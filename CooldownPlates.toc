@@ -1,0 +1,12 @@
+## Interface: 11200
+## Title: CooldownPlates
+## Version: 1.0
+## Notes: Tracks enemy cooldowns on nameplates.
+## Author: Abstractz
+## SavedVariablesPerCharacter: CooldownPlatesDB
+
+libs\AceLibrary\AceLibrary.lua
+libs\AceOO-2.0\AceOO-2.0.lua
+libs\Compost-2.0\Compost-2.0.lua
+
+CooldownPlates.lua
