@@ -80,12 +80,12 @@ local trackedSpells = {
     ["Escape Artist"] = {60, nil},
     ["Stoneform"] = {180, nil},
 	
-	["Insignia"] = {180, "inv_jewelry_trinketpvp_02"},
-	["Immune Charm/Fear/Stun"] = {180, "inv_jewelry_trinketpvp_02"},
-	["Immune Fear/Polymorph/Snare"] = {180, "inv_jewelry_trinketpvp_02"},
-	["Immune Fear/Polymorph/Stun"] = {180, "inv_jewelry_trinketpvp_02"},
-	["Immune Charm/Fear/Polymorph"] = {180, "inv_jewelry_trinketpvp_02"},
-	["Immune Root/Snare/Stun"] = {180, "inv_jewelry_trinketpvp_02"},
+	["Insignia"] = {300, "inv_jewelry_trinketpvp_02"},
+	["Immune Charm/Fear/Stun"] = {300, "inv_jewelry_trinketpvp_02"},
+	["Immune Fear/Polymorph/Snare"] = {300, "inv_jewelry_trinketpvp_02"},
+	["Immune Fear/Polymorph/Stun"] = {300, "inv_jewelry_trinketpvp_02"},
+	["Immune Charm/Fear/Polymorph"] = {300, "inv_jewelry_trinketpvp_02"},
+	["Immune Root/Snare/Stun"] = {300, "inv_jewelry_trinketpvp_02"},
 
     ["Frost Reflector"] = {300, "Spell_Frost_FrostWard"},
     ["Shadow Reflector"] = {300, "Spell_Shadow_AntiShadow"},
@@ -133,7 +133,7 @@ local trackedSpells = {
     ["Sprint"] = {300, nil},
     ["Blind"] = {300, nil},
     ["Vanish"] = {300, nil},
-    ["Adrenaline Rush"] = {360, nil},
+    ["Adrenaline Rush"] = {300, nil},
     ["Preparation"] = {600, nil},
 
     -- Shaman
@@ -314,7 +314,14 @@ end
 --- Checks if a given frame is a Blizzard nameplate
 local function isBlizzardNameplate(frame)
     if frame:GetObjectType() ~= "Button" then return nil end
-
+	-- Check for Overhead modified nameplates
+    if frame.overhead then
+        return true
+    end
+	-- Check for ShaguPlates modified nameplates
+    if frame.nameplate and frame.nameplate.platename then
+        return true
+    end
 	-- Check for ShaguTweaks modified nameplates
     if frame.new and frame.new.plate then
         return true
